@@ -1,0 +1,5 @@
+{
+  "nugetPackages": {
+    "Microsoft.Extensions.Logging.Log4Net.AspNetCore": "6.1.0"
+  }
+}

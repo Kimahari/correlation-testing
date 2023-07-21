@@ -1,0 +1,32 @@
+{
+  "name": "my-api.Test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/my-api.Test",
+  "targets": {
+    "build": {
+      "executor": "@nx-dotnet/core:build",
+      "outputs": [
+        "{workspaceRoot}/dist/apps/my-api.Test",
+        "{workspaceRoot}/dist/intermediates/apps/my-api.Test"
+      ],
+      "options": {
+        "configuration": "Debug",
+        "noDependencies": true
+      },
+      "configurations": {
+        "production": {
+          "configuration": "Release"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx-dotnet/core:test",
+      "options": {}
+    },
+    "lint": {
+      "executor": "@nx-dotnet/core:format"
+    }
+  },
+  "tags": []
+}
