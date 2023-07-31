@@ -14,9 +14,9 @@ export async function execucuteWithWId<TResult>(
   id: string,
   func: () => TResult
 ): Promise<TResult> {
-  console.info('Starting Work With ID', id);
+  //console.info('Starting Work With ID', id);
   const test = await storage.run({ id }, () => func());
-  console.info('Completed Work With ID', id);
+  //console.info('Completed Work With ID', id);
   return test;
 }
 

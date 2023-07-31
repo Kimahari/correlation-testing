@@ -3,6 +3,7 @@
 using static MyApi.ApplicationConstants;
 using log4net.Layout.Pattern;
 using log4net;
+using MyApi.Middleware;
 
 /// <summary>
 ///
@@ -16,9 +17,13 @@ public class CorrelationConverter : PatternLayoutConverter {
     /// <param name="writer"></param>
     /// <param name="loggingEvent"></param>
     protected override void Convert(TextWriter writer, log4net.Core.LoggingEvent loggingEvent) {
-        var currentCorrelation = ThreadContext.Properties[CORRELATION_ID_KEY];
+        //Console.WriteLine($"Nopes : {TraceInernal.CorrelationManager.ActivityId}");
 
-        if (currentCorrelation is null) return;
+        var currentCorrelation = TraceInernal.CorrelationManager.ActivityId;
+
+        if (currentCorrelation.Value == string.Empty) {
+            return;
+        }
 
         //if (Trace.CorrelationManager.ActivityId == default(Guid)) Trace.CorrelationManager.ActivityId = Guid.NewGuid();
         //if (Thread.CurrentThread.Name.IsNotNullOrEmpty()) writer.Write(Thread.CurrentThread.Name);

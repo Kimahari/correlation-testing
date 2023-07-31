@@ -26,7 +26,7 @@ export class AppService {
       )
     )).data;
 
-    this.logger.info('Done Getting Stuff From a server', weatherData);
+    this.logger.info('Done Getting Stuff From a server');
 
     return data;
   }

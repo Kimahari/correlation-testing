@@ -22,7 +22,7 @@
     "@nestjs/schematics": "^10.0.1",
     "@nestjs/testing": "^10.0.2",
     "@nrwl/js": "16.5.3",
-    "@nx-dotnet/core": "^1.22.0",
+    "@nx-dotnet/core": "1.22.0",
     "@nx/eslint-plugin": "16.5.3",
     "@nx/jest": "16.5.3",
     "@nx/js": "16.5.3",

@@ -2,6 +2,13 @@
 
 namespace MyApi.Controllers;
 
+using System; 
+using System.Collections; 
+using System.Collections.Specialized;
+using System.Threading;
+using System.Diagnostics;
+//using System.Runtime.Remoting.Messaging;
+
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase {
@@ -21,15 +28,24 @@ public class WeatherForecastController : ControllerBase {
 
     [HttpGet(Name = "GetWeatherForecast")]
     public async Task<IEnumerable<WeatherForecast>> Get() {
-        this._logger.LogInformation("Here is my C# Logger");
+        this._logger.LogInformation("Waiting Some bits....");
 
-        await this.client.PostAsJsonAsync("https://webhook.site/4ac73dad-f9dd-444f-a726-34fa38af6cf3", new { Data = "" });
+        await Task.Delay(Random.Shared.Next(100,300));
+
+        this._logger.LogInformation("Getting more details for weather request....");
+
+        await this.client.PostAsJsonAsync("https://webhook.site/a7f34886-75d4-4515-aefd-a8450e330582", new { Data = "" });
+
+        // this._logger.LogInformation("Getting more more details for weather request....");
+
+        // await this.client.PostAsJsonAsync("https://webhook.site/c723d502-f8b7-49ca-95ab-b04a811f6fde", new { Data = "" });
+ 
+        this._logger.LogInformation("Starting to respond with weather request data....");
 
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
             TemperatureC = Random.Shared.Next(-20, 55),
             Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        }).ToArray();
     }
 }

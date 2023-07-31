@@ -15,7 +15,7 @@ export async function correlate(
     corId = req.headers[CORRELATION_HEADER][0];
   }
 
-  console.log('Starting Request...', corId);
+  // console.log('Starting Request...', corId);
   res.setHeader(CORRELATION_HEADER, corId);
 
   await execucuteWithWId(corId, async () => {
@@ -26,6 +26,6 @@ export async function correlate(
     });
   });
 
-  console.log('Done with request', corId);
+  // console.log('Done with request', corId);
 }
 
