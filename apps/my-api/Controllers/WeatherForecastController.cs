@@ -2,8 +2,8 @@
 
 namespace MyApi.Controllers;
 
-using System; 
-using System.Collections; 
+using System;
+using System.Collections;
 using System.Collections.Specialized;
 using System.Threading;
 using System.Diagnostics;
@@ -30,16 +30,16 @@ public class WeatherForecastController : ControllerBase {
     public async Task<IEnumerable<WeatherForecast>> Get() {
         this._logger.LogInformation("Waiting Some bits....");
 
-        await Task.Delay(Random.Shared.Next(100,300));
+        //await Task.Delay(Random.Shared.Next(100,300));
 
         this._logger.LogInformation("Getting more details for weather request....");
 
-        await this.client.PostAsJsonAsync("https://webhook.site/a7f34886-75d4-4515-aefd-a8450e330582", new { Data = "" });
+        await this.client.PostAsJsonAsync("https://webhook.site/6cdcab04-cf49-432c-8e7f-0ffe827422ec", new { Data = "" });
 
         // this._logger.LogInformation("Getting more more details for weather request....");
 
         // await this.client.PostAsJsonAsync("https://webhook.site/c723d502-f8b7-49ca-95ab-b04a811f6fde", new { Data = "" });
- 
+
         this._logger.LogInformation("Starting to respond with weather request data....");
 
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast {
