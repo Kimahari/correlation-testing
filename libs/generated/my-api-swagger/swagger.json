@@ -64,6 +64,10 @@
           "summary": {
             "type": "string",
             "nullable": true
+          },
+          "somethingSomething": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
